@@ -1,0 +1,48 @@
+# Close shades just after sunset
+
+- alias: Close shades just after sunset
+  hide_entity: True
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -1.5
+  condition:
+    # We are not on vacation
+    condition: state
+    entity_id: input_boolean.on_vacation
+    state: 'off'
+  # Lower shades everywhere
+  action:
+    - service: notify.notify
+      data:
+        message: Lowering shades.
+    - service: scene.turn_on
+      entity_id:
+        - scene.42453 # Dining Closed
+        - scene.54379 # Master Closed
+        - scene.56015 # Living Closed
+
+# Open shades in the morning
+- alias: Open shades just after sunrise
+  hide_entity: True
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 2.5
+  condition:
+    # We are not on vacation
+    condition: state
+    entity_id: input_boolean.on_vacation
+    state: 'off'
+  # Raise shades everywhere
+  action:
+    - service: notify.notify
+      data:
+        message: Raising shades.
+    - service: scene.turn_on
+      entity_id:
+        - scene.37217 # Dining Open
+        - scene.37428 # Living Open
+        # - scene.64533 # Master Open
