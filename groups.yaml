@@ -7,8 +7,51 @@
 #    - device_tracker.egor
 #    - device_tracker.yulia
 
+basement_lights:
+  name: Basement Lights
+  view: no
+  entities:
+    - switch.art_room
+    - switch.basement_hall
+    - switch.mudroom
+    - switch.mudroom_closet
+    - switch.mech_room
+    - light.media_room
+
+ground_floor_lights:
+  name: Ground Floor Lights
+  view: no
+  entities:
+
+second_floor_lights:
+  name: Second Floor Lights
+  view: no
+  entities:
+    - switch.laundry
+    - light.above_tub
+    - switch.guest_bedroom
+    - switch.craft_room
+    - light.master_bedroom # TODO maybe remove?
+
+indoor_lights:
+  name: Indoor Lights
+  view: no
+  entities:
+    - group.basement_lights
+    - group.ground_floor_lights
+    - group.second_floor_lights
+    - switch.loft
+
+outdoor_lights:
+  name: Outdoor Lights
+  view: no
+  entities:
+    - switch.porch
+    - switch.deck
+    - switch.under_deck
+
 household:
-  name: household
+  name: Household
   view: yes
   entities:
     - device_tracker.yulia
