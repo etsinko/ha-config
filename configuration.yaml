@@ -174,6 +174,44 @@ binary_sensor:
     monitored_conditions:
       - ding
       - motion
+  - platform: bayesian
+    name: Somebody home
+    prior: 0.6  # 60% chance that somebody is at home
+    probability_threshold: 0.85
+    observations:
+      # Egor's phone is home
+      - entity_id: device_tracker.egor
+        platform: state
+        to_state: home
+        prob_given_true: 0.7
+      # Yulia's phone is home
+      - entity_id: device_tracker.yulia
+        platform: state
+        to_state: home
+        prob_given_true: 0.7
+      # Alarm is armed
+      - entity_id: alarm_control_panel.home_alarm
+        platform: state
+        to_state: armed
+        prob_given_true: 0.2
+        prob_given_false: 0.9
+      # Any indoor light is turned on
+      - entity_id: group.indoor_lights
+        platform: state
+        to_state: on
+        prob_given_true: 0.7
+      # Motion is detected
+      - entity_id: group.motion_detectors
+        platform: state
+        to_state: on
+        prob_given_true: 0.9
+        prob_given_false: 0.01
+      # Occupancy is detected
+      - entity_id: group.occupancy_sensors
+        platform: state
+        to_state: on
+        prob_given_true: 0.9
+        prob_given_false: 0.01
 
 zoneminder:
   host: !secret zm_host
