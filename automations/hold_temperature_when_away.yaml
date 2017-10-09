@@ -19,6 +19,9 @@
         before: '18:00:00'
   # Set away mode
   action:
+    - service: notify.notify
+      data:
+        message: Nobody is at home. Setting thermostat to Away mode.
     - service: climate.set_away_mode
       data:
         entity_id: group.climate
@@ -37,6 +40,9 @@
     state: 'off'
   # Exit from away mode
   action:
+    - service: notify.notify
+      data:
+        message: Somebody is at home. Cancelling Away mode.
     - service: climate.set_away_mode
       data:
         entity_id: group.climate
