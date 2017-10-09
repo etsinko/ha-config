@@ -1,0 +1,28 @@
+- alias: Mute Monoprice zones when doorbell is ringing
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_ding
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: media_player.art_room
+        state: 'on'
+      - condition: state
+        entity_id: media_player.ensuite
+        state: 'on'
+      - condition: state
+        entity_id: media_player.kitchendining_room
+        state: 'on'
+      - condition: state
+        entity_id: media_player.living_room
+        state: 'on'
+      - condition: state
+        entity_id: media_player.loft
+        state: 'on'
+      - condition: state
+        entity_id: media_player.master_bedroom
+        state: 'on'
+  action:
+    - service: script.mute_zones

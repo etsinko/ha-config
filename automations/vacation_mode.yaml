@@ -1,0 +1,24 @@
+- alias: Turn on Vacation/Away Mode
+  trigger:
+    - platform: state
+      entity_id: input_boolean.on_vacation
+      to: 'on'
+  action:
+    # 1 Set away mode in thermostat
+    - service: climate.set_away_mode
+      data:
+        entity_id: group.climate
+        away_mode: true
+    # TODO add turn off all lights
+
+- alias: Turn off Vacation/AwayMode
+  trigger:
+    - platform: state
+      entity_id: input_boolean.on_vacation
+      to: 'off'
+  action:
+    # Remove away mode from thermostat
+    - service: climate.set_away_mode
+      data:
+        entity_id: group.climate
+        away_mode: false

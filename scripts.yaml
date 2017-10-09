@@ -1,0 +1,13 @@
+# Mutes all Monoprice zones
+mute_zones:
+  sequence:
+    - service: media_player.volume_mute
+      data:
+        entity_id: group.monoprice
+        is_volume_muted: true
+    - delay:
+        seconds: 5
+    - service: media_player.volume_mute
+      data:
+        entity_id: group.monoprice
+        is_volume_muted: false

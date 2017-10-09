@@ -1,0 +1,271 @@
+yulia:
+  hide_if_away: false
+  icon:
+  mac: 30:A8:DB:C0:62:D5
+  name: Yulia
+  picture:
+  gravatar: !secret yulia_email
+  track: true
+  vendor: Sony Mobile Communications AB
+
+egor:
+  hide_if_away: false
+  icon:
+  mac: 64:89:9A:86:8F:5B
+  name: Egor
+  gravatar: !secret egor_email
+  picture:
+  track: true
+  vendor: LG Electronics (Mobile Communications)
+
+e04f4311897d:
+  hide_if_away: false
+  icon:
+  mac: E0:4F:43:11:89:7D
+  name: --
+  picture:
+  track: false
+  vendor: Universal Global Scientific Industrial Co., Ltd.
+
+546009e3b46a:
+  hide_if_away: false
+  icon:
+  mac: 54:60:09:E3:B4:6A
+  name: --
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+446132c86cc4:
+  hide_if_away: false
+  icon:
+  mac: 44:61:32:C8:6C:C4
+  name: --
+  picture:
+  track: false
+  vendor: ecobee inc
+
+'645299699742':
+  hide_if_away: false
+  icon:
+  mac: 64:52:99:69:97:42
+  name: --
+  picture:
+  track: false
+  vendor: The Chamberlain Group, Inc
+
+286c07f6f6e7:
+  hide_if_away: false
+  icon:
+  mac: 28:6C:07:F6:F6:E7
+  name: --
+  picture:
+  track: false
+  vendor: XIAOMI Electronics,CO.,LTD
+
+001c2a0120cd:
+  hide_if_away: false
+  icon:
+  mac: 00:1C:2A:01:20:CD
+  name: --
+  picture:
+  track: false
+  vendor: Envisacor Technologies Inc.
+
+000c297b3fa1:
+  hide_if_away: false
+  icon:
+  mac: 00:0C:29:7B:3F:A1
+  name: --
+  picture:
+  track: false
+  vendor: VMware, Inc.
+
+000c2973adc9:
+  hide_if_away: false
+  icon:
+  mac: 00:0C:29:73:AD:C9
+  name: --
+  picture:
+  track: false
+  vendor: VMware, Inc.
+
+00626e6f7d27:
+  hide_if_away: false
+  icon:
+  mac: 00:62:6E:6F:7D:27
+  name: --
+  picture:
+  track: false
+  vendor: unknown
+
+chromecast:
+  hide_if_away: false
+  icon:
+  mac: F4:F5:D8:97:F5:08
+  name: Chromecast
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+macrohard:
+  hide_if_away: false
+  icon:
+  mac: 00:01:2E:2F:00:C7
+  name: MACROHARD
+  picture:
+  track: false
+  vendor: PC Partner Ltd.
+
+wifiplus:
+  hide_if_away: false
+  icon:
+  mac: 10:78:5B:00:CD:F0
+  name: WIFIPLUS
+  picture:
+  track: false
+  vendor: Actiontec Electronics, Inc
+
+dlinknas:
+  hide_if_away: false
+  icon:
+  mac: 78:54:2E:29:6C:B4
+  name: DLINK-NAS
+  picture:
+  track: false
+  vendor: D-Link International
+
+homeassistant:
+  hide_if_away: false
+  icon:
+  mac: 00:0C:29:92:21:0E
+  name: homeassistant
+  picture:
+  track: false
+  vendor: VMware, Inc.
+
+446132df40eb:
+  hide_if_away: false
+  icon:
+  mac: 44:61:32:DF:40:EB
+  name: --
+  picture:
+  track: false
+  vendor: ecobee inc
+
+zoneminder:
+  hide_if_away: false
+  icon:
+  mac: 00:0C:29:C1:E7:8A
+  name: ZONEMINDER
+  picture:
+  track: false
+  vendor: VMware, Inc.
+
+desktopc8r6kff:
+  hide_if_away: false
+  icon:
+  mac: D0:57:7B:FE:06:DC
+  name: DESKTOP-C8R6KFF
+  picture:
+  track: false
+  vendor: unknown
+
+00626e6f7d25:
+  hide_if_away: false
+  icon:
+  mac: 00:62:6E:6F:7D:25
+  name: --
+  picture:
+  track: false
+  vendor: unknown
+
+90e2baea47ce:
+  hide_if_away: false
+  icon:
+  mac: 90:E2:BA:EA:47:CE
+  name: --
+  picture:
+  track: false
+  vendor: unknown
+
+a00bba7ee92e:
+  hide_if_away: false
+  icon:
+  mac: A0:0B:BA:7E:E9:2E
+  name: --
+  picture:
+  track: false
+  vendor: SAMSUNG ELECTRO MECHANICS CO., LTD.
+
+desktopc8r6kff_2:
+  hide_if_away: false
+  icon:
+  mac: 2C:4D:54:3E:B6:B1
+  name: DESKTOP-C8R6KFF
+  picture:
+  track: false
+  vendor: unknown
+
+mint:
+  hide_if_away: false
+  icon:
+  mac: 00:0C:29:6F:98:B4
+  name: mint
+  picture:
+  track: false
+  vendor: VMware, Inc.
+
+ferkel:
+  hide_if_away: false
+  icon:
+  mac: B4:82:FE:61:DE:21
+  name: Ferkel
+  picture:
+  track: false
+  vendor: ASKEY COMPUTER CORP
+
+000c291f798c:
+  hide_if_away: false
+  icon:
+  mac: 00:0C:29:1F:79:8C
+  name: --
+  picture:
+  track: false
+  vendor: VMware, Inc.
+
+worklaptop:
+  hide_if_away: false
+  icon:
+  mac: 6C:71:D9:9C:A2:1B
+  name: work-laptop
+  picture:
+  track: false
+  vendor: AzureWave Technology Inc.
+
+redminote4redmi:
+  hide_if_away: true
+  icon:
+  mac: C4:0B:CB:80:BC:58
+  name: Alex T
+  picture:
+  track: true
+  vendor: Xiaomi Communications Co Ltd
+
+isy994ems:
+  hide_if_away: false
+  icon:
+  mac: 00:21:B9:02:01:1A
+  name: ISY994-EMS
+  picture:
+  track: false
+  vendor: Universal Devices Inc.
+
+002674afeb8b:
+  hide_if_away: false
+  icon:
+  mac: 00:26:74:AF:EB:8B
+  name: --
+  picture:
+  track: false
+  vendor: Electronic Solutions, Inc.

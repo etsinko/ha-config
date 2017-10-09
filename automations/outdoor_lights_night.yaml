@@ -1,0 +1,25 @@
+- alias: Turn On Lower deck/Porch Lights after sunset
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -2.5
+  action:
+    service: switch.turn_on
+    data:
+      entity_id:
+        - switch.porch
+        - switch.under_deck
+
+- alias: Turn Off lower deck/Porch Lights before sunrise
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: -3.5
+  action:
+    service: switch.turn_off
+    data:
+      entity_id:
+        - switch.porch
+        - switch.under_deck
