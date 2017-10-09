@@ -1,2 +1,43 @@
 # Sets temepature to 18 degrees when alarm
 # is set during the DAY and not on vacation
+- alias: Lower temperature when away during the day
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'armed'
+  condition:
+    condition: and
+    conditions:
+      # We are not on vacation
+      - condition: state
+        entity_id: input_boolean.on_vacation
+        state: 'off'
+      # And it is daytime
+      - condition: time
+        after: '06:00:00'
+        before: '18:00:00'
+  # Set away mode
+  action:
+    - service: climate.set_away_mode
+      data:
+        entity_id: group.climate
+        away_mode: true
+
+# Sets temperature back to normal when alarm is disarmed
+- alias: Return temperature back to normal
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'disarmed'
+  condition:
+    condition: state
+    entity_id: input_boolean.on_vacation
+    state: 'off'
+  # Exit from away mode
+  action:
+    - service: climate.set_away_mode
+      data:
+        entity_id: group.climate
+        away_mode: false
