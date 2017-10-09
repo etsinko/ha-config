@@ -1,4 +1,5 @@
 - alias: Turn on Vacation/Away Mode
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: input_boolean.on_vacation
@@ -12,6 +13,7 @@
     # TODO add turn off all lights
 
 - alias: Turn off Vacation/AwayMode
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: input_boolean.on_vacation

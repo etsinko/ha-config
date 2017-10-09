@@ -1,4 +1,5 @@
 - alias: Mute Monoprice zones when doorbell is ringing
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: binary_sensor.ring_front_door_ding

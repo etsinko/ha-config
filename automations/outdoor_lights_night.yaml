@@ -1,4 +1,5 @@
 - alias: Turn On Lower deck/Porch Lights after sunset
+  hide_entity: True
   trigger:
     platform: numeric_state
     entity_id: sun.sun
@@ -12,6 +13,7 @@
         - switch.under_deck
 
 - alias: Turn Off lower deck/Porch Lights before sunrise
+  hide_entity: True
   trigger:
     platform: numeric_state
     entity_id: sun.sun
