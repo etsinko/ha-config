@@ -7,6 +7,28 @@
 #    - device_tracker.egor
 #    - device_tracker.yulia
 
+motion_detectors:
+  name: Motion Detectors
+  view: no
+  entities:
+    - binary_sensor.foyer_md
+    - binary_sensor.dining_room_md
+    - binary_sensor.great_room_md
+    - binary_sensor.mech_room_md
+    - binary_sensor.media_room_md_1
+    - binary_sensor.media_room_md_2
+    - binary_sensor.mudroom_md
+
+occupancy_sensors:
+  name: Occupancy Sensors
+  view: no
+  entities:
+    - binary_sensor.basement_occupancy
+    - binary_sensor.loft_occupancy
+    - binary_sensor.main_floor_occupancy
+    - binary_sensor.master_bedroom_occupancy
+    - binary_sensor.upstairs_occupancy
+
 basement_lights:
   name: Basement Lights
   view: no
