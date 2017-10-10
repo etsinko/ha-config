@@ -195,7 +195,7 @@ binary_sensor:
       # Alarm is armed
       - entity_id: alarm_control_panel.home_alarm
         platform: state
-        to_state: armed
+        to_state: armed_away
         prob_given_true: 0.2
         prob_given_false: 0.9
       # Any indoor light is turned on
