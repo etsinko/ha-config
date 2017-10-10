@@ -81,12 +81,6 @@ sensor:
   - platform: yweather
     monitored_conditions:
       - temperature
-  - platform: fido
-    username: !secret fido_user
-    password: !secret fido_pass
-    monitored_variables:
-      - data_used
-      - data_limit
   - platform: season
     type: meteorological
 # TODO doesn't work
@@ -182,17 +176,12 @@ binary_sensor:
     prior: 0.6  # 60% chance that somebody is at home
     probability_threshold: 0.85
     observations:
-      # Egor's phone is home
-      - entity_id: device_tracker.egor
+      # If at least one member of household is home
+      - entity_id: group.household
         platform: state
         to_state: home
-        prob_given_true: 0.7
-      # Yulia's phone is home
-      - entity_id: device_tracker.yulia
-        platform: state
-        to_state: home
-        prob_given_true: 0.7
-      # Alarm is armed
+        prob_given_true: 0.9 # Slight chance that somebody might forget the phone
+      # Alarm is armed -> most likely nobody is at home
       - entity_id: alarm_control_panel.home_alarm
         platform: state
         to_state: armed_away
@@ -201,18 +190,18 @@ binary_sensor:
       # Any indoor light is turned on
       - entity_id: group.indoor_lights
         platform: state
-        to_state: on
+        to_state: 'on'
         prob_given_true: 0.7
       # Motion is detected
       - entity_id: group.motion_detectors
         platform: state
-        to_state: on
+        to_state: 'on'
         prob_given_true: 0.9
         prob_given_false: 0.01
       # Occupancy is detected
       - entity_id: group.occupancy_sensors
         platform: state
-        to_state: on
+        to_state: 'on'
         prob_given_true: 0.9
         prob_given_false: 0.01
 
