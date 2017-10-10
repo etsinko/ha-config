@@ -1,0 +1,30 @@
+# Turns off all lights/zones/devices when alarm is set at night
+- alias: Turn off all lights when at night
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'armed_away'
+  condition:
+    condition: and
+    conditions:
+      # We are not on vacation
+      - condition: state
+        entity_id: input_boolean.on_vacation
+        state: 'off'
+      # And it is night time
+      - condition: time
+        after: '21:00:00'
+        before: '06:00:00'
+  # Turn off all lights
+  action:
+    - service: notify.telegram_egor
+      data:
+        message: Bed time. Turning off all lights
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - group.indoor_lights
+    - service: media_player.turn_off
+      data:
+        entity_id: group.monoprice
