@@ -5,7 +5,7 @@
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'armed'
+      to: 'armed_away'
   condition:
     condition: and
     conditions:
@@ -19,7 +19,7 @@
         before: '18:00:00'
   # Set away mode
   action:
-    - service: notify.notify
+    - service: notify.telegram_egor
       data:
         message: Nobody is at home. Setting thermostat to Away mode.
     - service: climate.set_away_mode
@@ -40,7 +40,7 @@
     state: 'off'
   # Exit from away mode
   action:
-    - service: notify.notify
+    - service: notify.telegram_egor
       data:
         message: Somebody is at home. Cancelling Away mode.
     - service: climate.set_away_mode

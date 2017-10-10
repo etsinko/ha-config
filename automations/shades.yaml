@@ -6,7 +6,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: -1.5
+    below: -0.5
   condition:
     # We are not on vacation
     condition: state
@@ -14,7 +14,7 @@
     state: 'off'
   # Lower shades everywhere
   action:
-    - service: notify.notify
+    - service: notify.telegram_egor
       data:
         message: Lowering shades.
     - service: scene.turn_on
@@ -38,7 +38,7 @@
     state: 'off'
   # Raise shades everywhere
   action:
-    - service: notify.notify
+    - service: notify.telegram_egor
       data:
         message: Raising shades.
     - service: scene.turn_on
