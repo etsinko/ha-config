@@ -53,6 +53,9 @@ logbook:
 sun:
 
 sensor:
+  - platform: time_date
+    display_options:
+      - time
   - platform: speedtest
     monitored_conditions:
       - ping
