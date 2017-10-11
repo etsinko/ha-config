@@ -13,9 +13,6 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-# Show links to resources in log and frontend
-#introduction:
-
 # Enables the frontend
 frontend:
 
@@ -173,36 +170,35 @@ binary_sensor:
       - motion
   - platform: bayesian
     name: Somebody home
-    prior: 0.6  # 60% chance that somebody is at home
+    prior: 0.6  # 60% chance that somebody is at home at any given moment
     probability_threshold: 0.85
     observations:
-      # If at least one member of household is home
+      # Somebody at home -> Very likely at least one household member is at home
       - entity_id: group.household
         platform: state
         to_state: home
-        prob_given_true: 0.9 # Slight chance that somebody might forget the phone
-      # Alarm is armed -> most likely nobody is at home
+        prob_given_true: 0.9
+      # Somebody at home -> Likely alarm is disarmed
       - entity_id: alarm_control_panel.home_alarm
         platform: state
-        to_state: armed_away
-        prob_given_true: 0.2
-        prob_given_false: 0.9
-      # Any indoor light is turned on
+        to_state: disarmed
+        prob_given_true: 0.7
+      # Somebody at home -> likely that at least one indoor light is turned on
       - entity_id: group.indoor_lights
         platform: state
         to_state: 'on'
         prob_given_true: 0.7
-      # Motion is detected
-      - entity_id: group.motion_detectors
+      # Somebody at home -> Very Likely motion will be detected
+      - entity_id: input_boolean.motion_detected
         platform: state
         to_state: 'on'
-        prob_given_true: 0.9
+        prob_given_true: 0.8
         prob_given_false: 0.01
-      # Occupancy is detected
+      # Somebody at home -> Very likely occupancy will detected
       - entity_id: group.occupancy_sensors
         platform: state
         to_state: 'on'
-        prob_given_true: 0.9
+        prob_given_true: 0.8
         prob_given_false: 0.01
 
 zoneminder:
@@ -252,6 +248,11 @@ logger:
  default: info
 
 input_boolean:
+  # System variable that is set by automation for 5 minutes after each
+  # motion detection
+  motion_detected:
+    name: Motion detected
+    initial: off
   have_guests:
     name: Have guests
     initial: off

@@ -1,0 +1,22 @@
+# Sets motion detected input boolean to true for 5 minutes after motion
+- alias: Set motion detected to true
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: group.motion_detectors
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: input_boolean.motion_detected
+
+- alias: Set motion detected to true after 5 minutes of no motion
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: group.motion_detectors
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+    service: homeassistant.turn_off
+    entity_id: input_boolean.motion_detected
