@@ -5,6 +5,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.somebody_home
+      from: 'on'
       to: 'off'
       for:
         minutes: 5
@@ -41,6 +42,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.somebody_home
+      from: 'off'
       to: 'on'
   condition:
     condition: state
