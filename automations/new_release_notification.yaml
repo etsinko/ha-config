@@ -1,0 +1,9 @@
+- alias: Update notifications
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: notify.telegram_egor
+    data:
+      message: 'Update for Home Assistant is available.'
