@@ -1,6 +1,6 @@
 # Close shades just after sunset
 
-- alias: Close shades just after sunset
+- alias: Lower shades just after sunset
   hide_entity: True
   trigger:
     platform: numeric_state
@@ -16,7 +16,7 @@
   action:
     - service: notify.telegram_egor
       data:
-        message: Lowering shades.
+        message: Sun has just set. Lowering shades.
     - service: scene.turn_on
       entity_id:
         - scene.42453 # Dining Closed
@@ -24,7 +24,7 @@
         - scene.56015 # Living Closed
 
 # Open shades in the morning
-- alias: Open shades just after sunrise
+- alias: Raise shades just after sunrise
   hide_entity: True
   trigger:
     platform: numeric_state
@@ -40,7 +40,7 @@
   action:
     - service: notify.telegram_egor
       data:
-        message: Raising shades.
+        message: Sun is up! Raising shades.
     - service: scene.turn_on
       entity_id:
         - scene.37217 # Dining Open

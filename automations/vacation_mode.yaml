@@ -12,7 +12,7 @@
         away_mode: true
     - service: notify.telegram_egor
       data:
-        message: Turning on Vacation mode.
+        message: Turning Vacation mode on.
     # TODO add turn off all lights
 
 - alias: Turn off Vacation/AwayMode
@@ -24,7 +24,7 @@
   action:
     - service: notify.telegram_egor
       data:
-        message: Turning off Vacation mode.
+        message: Turning Vacation mode off.
     # Remove away mode from thermostat
     - service: climate.set_away_mode
       data:

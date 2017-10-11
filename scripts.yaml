@@ -1,4 +1,4 @@
-# Mutes all Monoprice zones
+# Mutes all Monoprice zones for 5 seconds
 mute_zones:
   sequence:
     - service: media_player.volume_mute
