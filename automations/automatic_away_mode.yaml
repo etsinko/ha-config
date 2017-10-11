@@ -6,6 +6,8 @@
     - platform: state
       entity_id: binary_sensor.somebody_home
       to: 'off'
+      for:
+        minutes: 5
   condition:
     condition: and
     conditions:
@@ -13,10 +15,6 @@
       - condition: state
         entity_id: input_boolean.on_vacation
         state: 'off'
-      # And it is daytime
-      - condition: time
-        after: '06:00:00'
-        before: '20:00:00'
   # Set away mode
   action:
     - service: notify.telegram_egor
