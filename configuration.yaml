@@ -331,3 +331,28 @@ isy994:
 scene:
   platform: hunterdouglas_powerview
   address: !secret powerview_address
+
+alert:
+  garage_door:
+    name: Garage door is open
+    done_message: Garage door is closed
+    entity_id: cover.garage_door
+    state: 'open'
+    repeat: 5
+    can_acknowledge: True
+    skip_first: True
+    notifiers:
+      - telegram_egor
+      - ecobee
+
+input_datetime:
+  night_starts:
+    name: Night Mode Start
+    has_date: false
+    has_time: true
+    initial: '1970-01-01 21:00'
+  night_ends:
+    name: Night Mode Ends
+    has_date: false
+    has_time: true
+    initial: '1970-01-01 08:00'
