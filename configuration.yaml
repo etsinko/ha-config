@@ -54,34 +54,49 @@ logbook:
 sun:
 
 sensor:
+  - platform: darksky
+    api_key: !secret darksky_key
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - cloud_cover
+      - temperature
+      - apparent_temperature
+      - hourly_summary
+
   - platform: time_date
     display_options:
       - time
+
   - platform: speedtest
     monitored_conditions:
       - ping
       - download
       - upload
+
   - platform: waqi
     token: !secret waqi_token
     locations: [Calgary]
     stations: ['Calgary Northwest, Alberta, Canada']
+
   - platform: zoneminder
     include_archived: false
+
   - platform: plex
     host: !secret plex_host
     server: plex
     username: !secret plex_user
     password: !secret plex_pass
+
   - platform: ring
     monitored_conditions:
       - last_activity
       - last_ding
       - last_motion
+
   - platform: moon
-  - platform: yweather
-    monitored_conditions:
-      - temperature
+
   - platform: season
     type: meteorological
 # TODO doesn't work
