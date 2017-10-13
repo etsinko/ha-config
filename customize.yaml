@@ -40,5 +40,3 @@ switch.mudroom:
 switch.mudroom_closet:
   friendly_name: Mudroom Closet
   icon: mdi:lightbulb
-input_boolean.motion_detected:
-  hidden: true

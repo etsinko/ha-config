@@ -114,10 +114,12 @@ automation: !include_dir_merge_list automations/
 script: !include scripts.yaml
 
 device_tracker:
+
   - platform: netgear
     host: !secret netgear_host
     username: !secret netgear_user
     password: !secret netgear_pass
+
   - platform: nmap_tracker
     hosts:
       - !secret yulia_ip
@@ -240,7 +242,7 @@ binary_sensor:
         to_state: 'on'
         prob_given_true: 0.7
       # Somebody at home -> Very Likely motion will be detected
-      - entity_id: input_boolean.motion_detected
+      - entity_id: binary_sensor.motion_detected
         platform: state
         to_state: 'on'
         prob_given_true: 0.8
@@ -299,15 +301,6 @@ logger:
  default: info
 
 input_boolean:
-  # System variable that is set by automation during night
-  night:
-    name: SYSTEM! Night
-    initial: off
-  # System variable that is set by automation for 5 minutes after each
-  # motion detection
-  motion_detected:
-    name: SYSTEM! Motion detected
-    initial: off
   have_guests:
     name: Have guests
     initial: off

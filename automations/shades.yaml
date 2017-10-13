@@ -23,8 +23,8 @@
         - scene.54379 # Master Closed
         - scene.56015 # Living Closed
 
-# Open shades in the morning
-- alias: Raise shades just after sunrise
+# Open shades in the morning (cloudy day)
+- alias: Raise shades just after sunrise (cloudy)
   hide_entity: True
   trigger:
     platform: numeric_state
@@ -32,17 +32,56 @@
     value_template: '{{ state.attributes.elevation }}'
     above: 2.5
   condition:
-    # We are not on vacation
-    condition: state
-    entity_id: input_boolean.on_vacation
-    state: 'off'
+    condition: and
+    conditions:
+      # We are not on vacation
+      - condition: state
+        entity_id: input_boolean.on_vacation
+        state: 'off'
+      # It is dark outside (cloudy)
+      - condition: state
+        entity_id: binary_sensor.dark_outside
+        state: 'on'
   # Raise shades everywhere
   action:
     - service: notify.telegram_egor
       data:
-        message: Sun is up! Raising shades.
+        message: Sun is up! Although it is cloudy. Opening shades.
     - service: scene.turn_on
       entity_id:
-        - scene.37217 # Dining Open
+        - scene.37217 # Dining Vanes Open
         - scene.37428 # Living Open
+        # - scene.13877 # Dining Open
+        # - scene.43193 # Living Vanes Open
+        # - scene.64533 # Master Open
+
+- alias: Raise shades just after sunrise (sunny)
+  hide_entity: True
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 2.5
+  condition:
+    condition: and
+    conditions:
+      # We are not on vacation
+      - condition: state
+        entity_id: input_boolean.on_vacation
+        state: 'off'
+      # It is not dark outside (sunny)
+      - condition: state
+        entity_id: binary_sensor.dark_outside
+        state: 'off'
+  # Raise shades everywhere
+  action:
+    - service: notify.telegram_egor
+      data:
+        message: Sun is up! Opening shades.
+    - service: scene.turn_on
+      entity_id:
+        - scene.37217 # Dining Vanes Open
+        # - scene.37428 # Living Open
+        # - scene.13877 # Dining Open
+        - scene.43193 # Living Vanes Open
         # - scene.64533 # Master Open
