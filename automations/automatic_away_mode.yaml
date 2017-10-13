@@ -20,7 +20,7 @@
   action:
     - service: notify.telegram_egor
       data:
-        message: Seems like nobody is at home. Setting away mode.
+        message: Seems like nobody is at home. Turning of lights and lowering temperature.
     # Turn off lights
     - service: switch.turn_off
       data:
@@ -35,6 +35,12 @@
       data:
         entity_id: group.climate
         away_mode: true
+    # Close main floor shades
+    - service: scene.turn_on
+      data:
+        entity_id:
+          - scene.42453 # Dining Closed
+          - scene.56015 # Living Closed
 
 # Turn off automatic away mode
 - alias: Turn off automatic away mode
