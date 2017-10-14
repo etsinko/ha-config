@@ -54,6 +54,30 @@ logbook:
 sun:
 
 sensor:
+  - platform: template
+    sensors:
+      # Main house state:
+      # home - we are home
+      # away - we are away from home for a short period of time
+      # on_vacation - we are away from home for a long period of time (vacation)
+      # have_guests - we have guests over
+      current_state:
+        friendly_name: "Current State"
+        entity_id:
+          - input_boolean.on_vacation
+          - input_boolean.have_guests
+          - binary_sensor.somebody_home
+        value_template: >-
+          {% if is_state('input_boolean.on_vacation', 'on') %}
+          on_vacation
+          {% elif is_state('input_boolean.have_guests', 'on') %}
+          have_guests
+          {% elif is_state('binary_sensor.somebody_home', 'on') %}
+          home
+          {% else %}
+          away
+          {% endif %}
+
   - platform: darksky
     api_key: !secret darksky_key
     monitored_conditions:
