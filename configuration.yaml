@@ -222,6 +222,40 @@ binary_sensor:
       - motion
 
   - platform: bayesian
+    name: In Bed
+    prior: .33 # 33% chance that we are in bed (8 hrs out of 24hrs)
+    probability_threshold: 0.85
+    observations:
+      # We are in bed -> vey likely at least one household member is at home
+      - entity_id: group.household
+        platform: state
+        to_state: home
+        prob_given_true: 0.9 # 90% chance that if we are in bed we are at home
+        prob_given_false: 0.7 # 70% chance that if we are not in bed we are at home
+      # we are in bed -> likely alarm will be set
+      - entity_id: alarm_control_panel.home_alarm
+        platform: state
+        to_state: armed_away
+        prob_given_true: 0.7
+        prob_given_false: 0.5
+      # we are in bed -> vey likely no motion is detected
+      - entity_id: binary_sensor.motion_detected
+        platform: state
+        to_state: 'off'
+        prob_given_true: 0.8
+      # we are in bed -> very likely it is night time
+      - entity_id: binary_sensor.night
+        platform: state
+        to_state: 'on'
+        prob_given_true: 0.9
+      # we are in bed -> likely that at indoor lights are turned off
+      - entity_id: group.indoor_lights
+        platform: state
+        to_state: 'off'
+        prob_given_true: 0.7
+        prob_given_false: 0.7
+
+  - platform: bayesian
     name: Somebody home
     prior: 0.6  # 60% chance that somebody is at home at any given moment
     probability_threshold: 0.85
