@@ -8,14 +8,14 @@
   condition:
     condition: and
     conditions:
-      # We are not on vacation
+      # We are home
       - condition: state
-        entity_id: input_boolean.on_vacation
-        state: 'off'
+        entity_id: sensor.current_state
+        state: 'home'
       # And it is night time
-      - condition: time
-        after: '21:00:00'
-        before: '06:00:00'
+      - condition: state
+        entity_id: binary_sensor.night
+        state: 'on'
   # Turn off all lights
   action:
     - service: notify.telegram_egor

@@ -1,0 +1,20 @@
+- alias: notify when in bed mode is on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.in_bed
+      to: 'on'
+  action:
+    - service: notify.telegram_egor
+      data:
+        message: In bed mode is on!
+
+- alias: notify when in bed mode is off
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.in_bed
+      to: 'off'
+  action:
+    - service: notify.telegram_egor
+      data:
+        message: In bed mode is off!

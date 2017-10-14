@@ -1,0 +1,18 @@
+- alias: Turn on Vacation/Away Mode
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.current_state
+      to: 'on_vacation'
+  action:
+    # 1 Set away mode in thermostat
+    - service: climate.set_away_mode
+      data:
+        entity_id: group.climate
+        away_mode: true
+    - service: notify.telegram_egor
+      data:
+        message: Turning Vacation mode on. Have a good vacation!
+    # TODO add turn off all lights
+    # TODO shut down recirc pump
+    # TODO turn off all media players

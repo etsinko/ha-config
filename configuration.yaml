@@ -222,14 +222,14 @@ binary_sensor:
           - sun.sun
           - sensor.dark_sky_cloud_coverage
         friendly_name: Dark outside
-        value_template: "{{states.sun.sun.attributes.elevation|float < 2 or states.sensor.dark_sky_cloud_coverage.state|float > 50}}"
+        value_template: "{{states.sun.sun.attributes.elevation|float < 2 or states.sensor.dark_sky_cloud_coverage.state|float > 30}}"
 
-      # True if it is night time (Between 21:00 and 8:00)
+      # True if it is night time (Between 21:00 and 6:00)
       night:
         friendly_name: Night time
         entity_id:
           - sensor.time
-        value_template: '{{not(strptime("08:00", "%H:%M").time() < now().time() < strptime("21:00", "%H:%M").time())}}'
+        value_template: '{{not(strptime("06:00", "%H:%M").time() < now().time() < strptime("21:00", "%H:%M").time())}}'
 
       # Is on for 5 minutes after motion detectors trigger
       motion_detected:
@@ -334,6 +334,8 @@ cover:
 
 media_player:
   - platform: plex
+    entity_namespace: plex
+    show_all_controls: True
 
   - platform: monoprice
     port: /dev/ttyUSB0

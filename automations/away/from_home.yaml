@@ -1,0 +1,36 @@
+# Automatic away mode when nobody is at home during the day,
+# and not on vacation
+- alias: Turn on away mode
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.current_state
+      from: 'home'
+      to: 'away'
+      for:
+        minutes: 5
+  # Set away mode
+  action:
+    - service: notify.telegram_egor
+      data:
+        message: Nobody is at home. Turning off lights, lowering temperature and closing shades.
+    # Turn off lights
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - group.indoor_lights
+    # Turn off media players
+    - service: media_player.turn_off
+      data:
+        entity_id: group.monoprice
+    # Set away mode on thermostats
+    - service: climate.set_away_mode
+      data:
+        entity_id: group.climate
+        away_mode: true
+    # Close main floor shades
+    - service: scene.turn_on
+      data:
+        entity_id:
+          - scene.42453 # Dining Closed
+          - scene.56015 # Living Closed

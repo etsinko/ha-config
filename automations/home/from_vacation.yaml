@@ -1,0 +1,16 @@
+- alias: Turn off Vacation/AwayMode
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: sensor.current_state
+      from: 'on_vacation'
+      to: 'home'
+  action:
+    - service: notify.telegram_egor
+      data:
+        message: Turning Vacation mode off. Welcome home!
+    # Remove away mode from thermostat
+    - service: climate.set_away_mode
+      data:
+        entity_id: group.climate
+        away_mode: false

@@ -10,8 +10,8 @@
   condition:
     # We are not on vacation
     condition: state
-    entity_id: input_boolean.on_vacation
-    state: 'off'
+    entity_id: sensor.current_state
+    state: 'home'
   # Lower shades everywhere
   action:
     - service: notify.telegram_egor
@@ -36,8 +36,8 @@
     conditions:
       # We are not on vacation
       - condition: state
-        entity_id: input_boolean.on_vacation
-        state: 'off'
+        entity_id: sensor.current_state
+        state: 'home'
       # It is dark outside (cloudy)
       - condition: state
         entity_id: binary_sensor.dark_outside
@@ -67,8 +67,8 @@
     conditions:
       # We are not on vacation
       - condition: state
-        entity_id: input_boolean.on_vacation
-        state: 'off'
+        entity_id: sensor.current_state
+        state: 'home'
       # It is not dark outside (sunny)
       - condition: state
         entity_id: binary_sensor.dark_outside
