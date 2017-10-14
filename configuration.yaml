@@ -64,13 +64,12 @@ sensor:
       current_state:
         friendly_name: "Current State"
         entity_id:
-          - input_boolean.on_vacation
-          - input_boolean.have_guests
+          - input_select.system_mode
           - binary_sensor.somebody_home
         value_template: >-
-          {% if is_state('input_boolean.on_vacation', 'on') %}
+          {% if is_state('input_select.system_mode', 'On vacation') %}
           on_vacation
-          {% elif is_state('input_boolean.have_guests', 'on') %}
+          {% elif is_state('input_select.system_mode', 'Have guests') %}
           have_guests
           {% elif is_state('binary_sensor.somebody_home', 'on') %}
           home
@@ -360,15 +359,18 @@ media_player:
 logger:
  default: info
 
-input_boolean:
-  have_guests:
-    name: Have guests
-    initial: off
-    icon: mdi:hotel
-  on_vacation:
-    name: On Vacation
-    initial: off
-    icon: mdi:airplane-takeoff
+input_select:
+  # Current automation mode
+  # Normal - normal day to day life, work etc.
+  # On Vacation - nobody is at home for a long period of time
+  # Have guests - we have guests staying over
+  system_mode:
+    name: House Mode
+    options:
+      - Normal
+      - On vacation
+      - Have guests
+    initial: Normal
 
 telegram_bot:
   - platform: polling
