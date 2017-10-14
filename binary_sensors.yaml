@@ -1,0 +1,103 @@
+- platform: workday
+  country: CA
+  province: AB
+
+- platform: template
+  sensors:
+    # True if it is dark outside if sun is below horizon or cloud coverage
+    # is greater than 50%
+    dark_outside:
+      entity_id:
+        - sun.sun
+        - sensor.dark_sky_cloud_coverage
+      friendly_name: Dark outside
+      value_template: "{{states.sun.sun.attributes.elevation|float < 2 or states.sensor.dark_sky_cloud_coverage.state|float > 50}}"
+
+    # True if it is night time (Between 21:00 and 6:00)
+    night:
+      friendly_name: Night time
+      entity_id:
+        - sensor.time
+      value_template: '{{not(strptime("06:00", "%H:%M").time() < now().time() < strptime("21:00", "%H:%M").time())}}'
+
+    # Is on for 5 minutes after motion detectors trigger
+    motion_detected:
+      friendly_name: Motion detected
+      delay_off:
+        minutes: 3
+      entity_id:
+        - group.motion_detectors
+      value_template: "{{is_state('group.motion_detectors', 'on')}}"
+
+- platform: ring
+  monitored_conditions:
+    - ding
+    - motion
+
+- platform: bayesian
+  name: In Bed
+  prior: .33 # 33% chance that we are in bed (8 hrs out of 24hrs)
+  probability_threshold: 0.85
+  observations:
+    # We are in bed -> vey likely at least one household member is at home
+    - entity_id: group.household
+      platform: state
+      to_state: home
+      prob_given_true: 0.9 # 90% chance that if we are in bed we are at home
+      prob_given_false: 0.7 # 70% chance that if we are not in bed we are at home
+    # we are in bed -> likely alarm will be set
+    - entity_id: alarm_control_panel.home_alarm
+      platform: state
+      to_state: armed_away
+      prob_given_true: 0.7
+      prob_given_false: 0.5
+    # we are in bed -> vey likely no motion is detected
+    - entity_id: binary_sensor.motion_detected
+      platform: state
+      to_state: 'off'
+      prob_given_true: 0.8
+      prob_given_false: 0.7
+    # we are in bed -> very likely it is night time
+    - entity_id: binary_sensor.night
+      platform: state
+      to_state: 'on'
+      prob_given_true: 0.9
+    # we are in bed -> likely that at indoor lights are turned off
+    - entity_id: group.indoor_lights
+      platform: state
+      to_state: 'off'
+      prob_given_true: 0.7
+      prob_given_false: 0.7
+
+- platform: bayesian
+  name: Somebody home
+  prior: 0.6  # 60% chance that somebody is at home at any given moment
+  probability_threshold: 0.85
+  observations:
+    # Somebody at home -> Very likely at least one household member is at home
+    - entity_id: group.household
+      platform: state
+      to_state: home
+      prob_given_true: 0.9
+    # Somebody at home -> Likely alarm is disarmed
+    - entity_id: alarm_control_panel.home_alarm
+      platform: state
+      to_state: disarmed
+      prob_given_true: 0.7
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: group.indoor_lights
+      platform: state
+      to_state: 'on'
+      prob_given_true: 0.7
+    # Somebody at home -> Very Likely motion will be detected
+    - entity_id: binary_sensor.motion_detected
+      platform: state
+      to_state: 'on'
+      prob_given_true: 0.8
+      prob_given_false: 0.01
+    # Somebody at home -> Very likely occupancy will detected
+    - entity_id: group.occupancy_sensors
+      platform: state
+      to_state: 'on'
+      prob_given_true: 0.8
+      prob_given_false: 0.01

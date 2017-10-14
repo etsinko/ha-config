@@ -1,0 +1,80 @@
+- platform: template
+  sensors:
+
+    hour:
+      friendly_name: Current Hour
+      value_template: "{{now().hour|int}}"
+
+    # Main house state:
+    # home - we are home
+    # away - we are away from home for a short period of time
+    # on_vacation - we are away from home for a long period of time (vacation)
+    # have_guests - we have guests over
+    current_state:
+      friendly_name: Current State
+      entity_id:
+        - input_select.system_mode
+        - binary_sensor.somebody_home
+      value_template: >-
+        {% if is_state('input_select.system_mode', 'On vacation') %}
+        on_vacation
+        {% elif is_state('input_select.system_mode', 'Have guests') %}
+        have_guests
+        {% elif is_state('binary_sensor.somebody_home', 'on') %}
+        home
+        {% else %}
+        away
+        {% endif %}
+
+- platform: darksky
+  api_key: !secret darksky_key
+  monitored_conditions:
+    - summary
+    - icon
+    - nearest_storm_distance
+    - cloud_cover
+    - temperature
+    - apparent_temperature
+    - hourly_summary
+
+- platform: time_date
+  display_options:
+    - time
+
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+- platform: waqi
+  token: !secret waqi_token
+  locations: [Calgary]
+  stations: ['Calgary Northwest, Alberta, Canada']
+
+- platform: zoneminder
+  include_archived: false
+
+- platform: plex
+  host: !secret plex_host
+  server: plex
+  username: !secret plex_user
+  password: !secret plex_pass
+
+- platform: ring
+  monitored_conditions:
+    - last_activity
+    - last_ding
+    - last_motion
+
+- platform: moon
+
+- platform: season
+  type: meteorological
+# TODO doesn't work
+#   - platform: mold_indicator
+#     indoor_temp_sensor: sensor.main_floor_temperature
+#     indoor_humidity_sensor: sensor.main_floor_humidity
+#     outdoor_temp_sensor: sensor.yweather_temperature
+#     calibration_factor: 2.0
+# Text to speech
