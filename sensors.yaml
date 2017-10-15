@@ -3,7 +3,7 @@
 
     hour:
       friendly_name: Current Hour
-      value_template: "{{now().hour|int}}"
+      value_template: "{{now().hour}}"
 
     # Main house state:
     # home - we are home
