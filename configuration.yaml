@@ -59,6 +59,11 @@ sensor: !include sensors.yaml
 
 tts:
   - platform: google
+    cache: true
+  - platform: yandextts
+    voice: oksana
+    emotion: good
+    api_key: 77efbe84-ce1f-4a40-a33f-f0332d4bd534
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automations/
