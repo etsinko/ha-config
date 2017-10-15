@@ -6,6 +6,7 @@
       from: 'on_vacation'
       to: 'home'
   action:
+    - service: python_script.home_shades
     - service: notify.telegram_egor
       data:
         message: Turning Vacation mode off. Welcome home!

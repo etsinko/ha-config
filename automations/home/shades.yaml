@@ -3,10 +3,8 @@
 - alias: Lower shades just after sunset
   hide_entity: True
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: -0.5
+    platform: template
+    value_template: "{% if states.sun.sun.attributes.elevation <=  states.input_number.close_shades_elevation.state|float%}true{%endif%}"
   condition:
     # We are not on vacation
     condition: state
@@ -14,74 +12,19 @@
     state: 'home'
   # Lower shades everywhere
   action:
-    - service: notify.telegram_egor
-      data:
-        message: Sun has just set. Lowering shades.
-    - service: scene.turn_on
-      entity_id:
-        - scene.42453 # Dining Closed
-        - scene.54379 # Master Closed
-        - scene.56015 # Living Closed
+    - service: python_script.home_shades
 
-# Open shades in the morning (cloudy day)
-- alias: Raise shades just after sunrise (cloudy)
+# Open shades in the morning
+- alias: Raise shades just after sunrise
   hide_entity: True
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    above: 2.5
+    platform: template
+    value_template: "{% if states.sun.sun.attributes.elevation >=  states.input_number.open_shades_elevation.state|float%}true{%endif%}"
   condition:
-    condition: and
-    conditions:
-      # We are not on vacation
-      - condition: state
-        entity_id: sensor.current_state
-        state: 'home'
-      # It is dark outside (cloudy)
-      - condition: state
-        entity_id: binary_sensor.dark_outside
-        state: 'on'
+    # We are not on vacation
+    condition: state
+    entity_id: sensor.current_state
+    state: 'home'
   # Raise shades everywhere
   action:
-    - service: notify.telegram_egor
-      data:
-        message: Sun is up! Although it is cloudy. Opening shades.
-    - service: scene.turn_on
-      entity_id:
-        - scene.37217 # Dining Vanes Open
-        - scene.37428 # Living Open
-        # - scene.13877 # Dining Open
-        # - scene.43193 # Living Vanes Open
-        # - scene.64533 # Master Open
-
-- alias: Raise shades just after sunrise (sunny)
-  hide_entity: True
-  trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    above: 2.5
-  condition:
-    condition: and
-    conditions:
-      # We are not on vacation
-      - condition: state
-        entity_id: sensor.current_state
-        state: 'home'
-      # It is not dark outside (sunny)
-      - condition: state
-        entity_id: binary_sensor.dark_outside
-        state: 'off'
-  # Raise shades everywhere
-  action:
-    - service: notify.telegram_egor
-      data:
-        message: Sun is up! Opening shades.
-    - service: scene.turn_on
-      entity_id:
-        - scene.37217 # Dining Vanes Open
-        # - scene.37428 # Living Open
-        # - scene.13877 # Dining Open
-        - scene.43193 # Living Vanes Open
-        # - scene.64533 # Master Open
+    - service: python_script.home_shades

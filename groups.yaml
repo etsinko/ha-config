@@ -7,6 +7,13 @@
 #    - device_tracker.egor
 #    - device_tracker.yulia
 
+shades_elevation:
+  name: Open/Close shades Sun elevation
+  view: no
+  entities:
+    - input_number.close_shades_elevation
+    - input_number.open_shades_elevation
+
 motion_detectors:
   name: Motion Detectors
   view: no
@@ -100,6 +107,7 @@ config:
      - input_boolean.have_guests
      - input_boolean.on_vacation
      - group.night_mode_inputs
+     - group.shades_elevation
 
 night_mode_inputs:
   name: Night mode

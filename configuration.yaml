@@ -53,6 +53,8 @@ logbook:
 # Track the sun
 sun:
 
+python_script:
+
 sensor: !include sensors.yaml
 
 tts:
@@ -242,3 +244,19 @@ input_datetime:
     has_date: false
     has_time: true
     initial: '1970-01-01 08:00'
+
+input_number:
+  close_shades_elevation:
+    name: Closing shades Sun elevation
+    initial: -0.5
+    min: -10
+    max: 10
+    step: 0.1
+    mode: box
+  open_shades_elevation:
+    name: Opening shades Sun elevation
+    initial: 2.5
+    min: -10
+    max: 10
+    step: 0.1
+    mode: box
