@@ -1,0 +1,25 @@
+# Turn off automatic away mode
+- alias: Secondary Master bedroom switch opens shades
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: switch.master_bedroom_second
+      to: 'on'
+  action:
+    # Open master bedroom shades
+    - service: scene.turn_on
+      data:
+        entity_id: scene.64533
+
+
+- alias: Secondary Master bedroom switch closes shades
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: switch.master_bedroom_second
+      to: 'off'
+  action:
+    # Close master bedroom shades
+    - service: scene.turn_on
+      data:
+        entity_id: scene.54379
