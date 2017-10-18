@@ -8,7 +8,7 @@ switch.porch:
   friendly_name: Front Porch
   icon: mdi:lightbulb
 light.master_bedroom:
-  friendly_name: Master Bedroom Pots
+  friendly_name: Master Bedroom
 light.media_room:
   friendly_name: Media Room
 switch.deck:
@@ -40,3 +40,50 @@ switch.mudroom:
 switch.mudroom_closet:
   friendly_name: Mudroom Closet
   icon: mdi:lightbulb
+switch.bar_light:
+  friendly_name: Bar
+  icon: mdi:lightbulb
+switch.bsm_bathroom:
+  friendly_name: Basement Bathroom
+  icon: mdi:lightbulb
+switch.bsm_bathroom_exhaust:
+  friendly_name: Basement Bathroom Exhaust
+  icon: mdi:fan
+switch.bsm_bathroom_shower:
+  friendly_name: Basement Bathroom Shower
+  icon: mdi:lightbulb
+switch.bsm_bathroom_vanity:
+  friendly_name: Basement Bathroom Vanity
+  icon: mdi:lightbulb
+switch.bsm_toilet:
+  friendly_name: Basement Toilet
+  icon: mdi:lightbulb
+switch.bsm_toilet_exhaust:
+  friendly_name: Basement Toilet Exhaust
+  icon: mdi:fan
+switch.master_bathroom:
+  friendly_name: Ensuite Main
+  icon: mdi:lightbulb
+switch.master_bathroom_exhaust:
+  friendly_name: Ensuite Exhaust
+  icon: mdi:fan
+switch.master_bedroom_second:
+  friendly_name: Master Bedroom Secondary
+  icon: mdi:lightbulb
+switch.master_closet:
+  friendly_name: Ensuite Walk-in Closet
+  icon: mdi:lightbulb
+switch.master_toilet:
+  friendly_name: Ensuite Toilet
+  icon: mdi:lightbulb
+switch.master_toilet_exhaust:
+  friendly_name: Ensuite Toilet Exhaust
+  icon: mdi:fan
+switch.sauna:
+  friendly_name: Sauna
+  icon: mdi:lightbulb
+switch.wine_light:
+  friendly_name: Wine Rack
+  icon: mdi:lightbulb
+light.master_shower:
+  friendly_name: Ensuite Shower

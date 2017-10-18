@@ -46,6 +46,15 @@ basement_lights:
     - switch.mudroom_closet
     - switch.mech_room
     - light.media_room
+    - switch.bsm_bathroom
+    - switch.bsm_bathroom_shower
+    - switch.bsm_bathroom_exhaust
+    - switch.bsm_bathroom_vanity
+    - switch.bsm_toilet
+    - switch.bsm_toilet_exhaust
+    - switch.sauna
+    - switch.wine_light
+    - switch.bar_light
 
 ground_floor_lights:
   name: Ground Floor Lights
@@ -61,6 +70,12 @@ second_floor_lights:
     - switch.guest_bedroom
     - switch.craft_room
     - light.master_bedroom # TODO maybe remove?
+    - switch.master_bathroom
+    - switch.master_bathroom_exhaust
+    - switch.master_toilet
+    - switch.master_toilet_exhaust
+    - light.master_shower
+    - switch.master_closet
 
 indoor_lights:
   name: Indoor Lights
