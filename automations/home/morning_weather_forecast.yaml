@@ -1,0 +1,33 @@
+# Say weather forecast in the morning
+- alias: morning_forecast
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.dining_room_md
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      # We are home
+      - condition: state
+        entity_id: sensor.current_state
+        state: 'home'
+      # And it is morning
+      - condition: time
+        after: '06:00:00'
+        before: '12:00:00'
+  action:
+    # Play morning forecast
+    - service: script.current_weather
+    # Disable automation, to prevent repeated forecasts for today
+    - service: automation.turn_off
+      entity_id: automation.morning_forecast
+
+- alias: refresh_morning_forecast
+  hide_entity: True
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    - service: automation.turn_on
+      entity_id: automation.morning_forecast
