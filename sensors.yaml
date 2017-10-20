@@ -36,6 +36,7 @@
     - temperature
     - apparent_temperature
     - hourly_summary
+    - daily_summary
 
 - platform: time_date
   display_options:
