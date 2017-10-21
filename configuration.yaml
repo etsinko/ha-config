@@ -185,7 +185,7 @@ media_player:
         name: Art Room
     sources:
       5:
-        name: Chromcast Egor
+        name: Chromecast Egor
 
 logger:
  default: info
