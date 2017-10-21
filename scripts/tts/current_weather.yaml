@@ -10,7 +10,7 @@ sequence:
     data:
       entity_id:
         - media_player.kitchendining_room
-      source: 5
+      source: Chromecast Egor
   # Set volume to 30%
   - service: media_player.volume_set
     data:
