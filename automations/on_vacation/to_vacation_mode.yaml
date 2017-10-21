@@ -13,6 +13,13 @@
     - service: notify.telegram_egor
       data:
         message: Turning Vacation mode on. Have a good vacation!
-    # TODO add turn off all lights
-    # TODO shut down recirc pump
-    # TODO turn off all media players
+    # turn off all lights and recirculation pump
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - group.indoor_lights
+          - switch.recirc_pump
+    # Turn off media players
+    - service: media_player.turn_off
+      data:
+        entity_id: group.monoprice
