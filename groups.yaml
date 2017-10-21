@@ -67,6 +67,7 @@ basement_lights:
     - switch.sauna
     - switch.wine_light
     - switch.bar_light
+    - switch.basement_stairs
 
 exhaust_fans:
   name: Exhaust Fans
@@ -81,6 +82,12 @@ ground_floor_lights:
   name: Ground Floor Lights
   view: no
   entities:
+    - switch.dining_room
+    - switch.dining_art_wall
+    - switch.kitchen
+    - switch.main_stairs
+    - light.living_fireplace_wall
+    - light.living_pots
 
 master_bathroom_lights:
   name: Ensuite Lights
@@ -109,6 +116,13 @@ second_floor_lights:
     - group.master_bathroom_lights
     - group.master_toilet_light
     - switch.master_closet
+    - switch.upstairs_hallway
+loft_lights:
+  name: Loft Lights
+  view: no
+  entities:
+    - switch.loft
+    - switch.loft_stairs
 
 indoor_lights:
   name: Indoor Lights
@@ -117,7 +131,7 @@ indoor_lights:
     - group.basement_lights
     - group.ground_floor_lights
     - group.second_floor_lights
-    - switch.loft
+    - group.loft_lights
 
 outdoor_lights:
   name: Outdoor Lights
@@ -156,6 +170,7 @@ config:
      - input_boolean.on_vacation
      - group.night_mode_inputs
      - group.shades_elevation
+     - input_select.system_mode
 
 night_mode_inputs:
   name: Night mode

@@ -92,3 +92,28 @@ switch.recirc_pump:
   icon: mdi:pipe
 cover.garage_door:
   icon: mdi:garage  # mdi:garage-open
+switch.basement_stairs:
+  friendly_name: Basement Stairs
+  icon: mdi:lightbulb
+switch.dining_art_wall:
+  friendly_name: Dining Room Art Wall
+  icon: mdi:lightbulb
+switch.dining_room:
+  friendly_name: Dining Room
+  icon: mdi:lightbulb
+switch.kitchen:
+  friendly_name: Kitchen
+  icon: mdi:lightbulb
+switch.loft_stairs:
+  friendly_name: Loft Stairs
+  icon: mdi:lightbulb
+switch.main_stairs:
+  friendly_name: Main Stairs
+  icon: mdi:lightbulb
+switch.upstairs_hallway:
+  friendly_name: Upstairs Hallway
+  icon: mdi:lightbulb
+light.living_fireplace_wall:
+  friendly_name: Fireplace Wall
+light.living_pots:
+  friendly_name: Living Room
