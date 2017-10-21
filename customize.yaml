@@ -87,3 +87,8 @@ switch.wine_light:
   icon: mdi:lightbulb
 light.master_shower:
   friendly_name: Ensuite Shower
+switch.recirc_pump:
+  friendly_name: Recirculation Pump
+  icon: mdi:pipe
+cover.garage_door:
+  icon: mdi:garage  # mdi:garage-open
