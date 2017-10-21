@@ -36,6 +36,22 @@ occupancy_sensors:
     - binary_sensor.master_bedroom_occupancy
     - binary_sensor.upstairs_occupancy
 
+basement_bathroom_lights:
+  name: Basement Bathroom Lights
+  view: no
+  entities:
+    - switch.bsm_bathroom
+    - switch.bsm_bathroom_shower
+    - switch.bsm_bathroom_exhaust
+    - switch.bsm_bathroom_vanity
+
+basement_toilet_lights:
+  name: Basement Toilet Lights
+  view: no
+  entities:
+    - switch.bsm_toilet
+    - switch.bsm_toilet_exhaust
+
 basement_lights:
   name: Basement Lights
   view: no
@@ -46,35 +62,52 @@ basement_lights:
     - switch.mudroom_closet
     - switch.mech_room
     - light.media_room
-    - switch.bsm_bathroom
-    - switch.bsm_bathroom_shower
-    - switch.bsm_bathroom_exhaust
-    - switch.bsm_bathroom_vanity
-    - switch.bsm_toilet
-    - switch.bsm_toilet_exhaust
+    - group.basement_bathroom_lights
+    - group.basement_toilet_lights
     - switch.sauna
     - switch.wine_light
     - switch.bar_light
+
+exhaust_fans:
+  name: Exhaust Fans
+  view: no
+  entities:
+    - switch.bsm_bathroom_exhaust
+    - switch.bsm_toilet_exhaust
+    - switch.master_bathroom_exhaust
+    - switch.master_toilet_exhaust
 
 ground_floor_lights:
   name: Ground Floor Lights
   view: no
   entities:
 
+master_bathroom_lights:
+  name: Ensuite Lights
+  view: no
+  entities:
+    - light.above_tub
+    - switch.master_bathroom
+    - switch.master_bathroom_exhaust
+    - light.master_shower
+
+master_toilet_light:
+  name: Master Toilet Light
+  view: no
+  entities:
+    - switch.master_toilet
+    - switch.master_toilet_exhaust
+
 second_floor_lights:
   name: Second Floor Lights
   view: no
   entities:
     - switch.laundry
-    - light.above_tub
     - switch.guest_bedroom
     - switch.craft_room
     - light.master_bedroom # TODO maybe remove?
-    - switch.master_bathroom
-    - switch.master_bathroom_exhaust
-    - switch.master_toilet
-    - switch.master_toilet_exhaust
-    - light.master_shower
+    - group.master_bathroom_lights
+    - group.master_toilet_light
     - switch.master_closet
 
 indoor_lights:
