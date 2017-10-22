@@ -19,6 +19,8 @@ frontend:
 # Enables configuration UI
 config:
 
+map:
+
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret password
