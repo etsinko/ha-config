@@ -37,7 +37,7 @@ occupancy_sensors:
     - binary_sensor.upstairs_occupancy
 
 basement_bathroom_lights:
-  name: Basement Bathroom Lights
+  name: Basement Bathroom
   view: no
   entities:
     - switch.bsm_bathroom
@@ -46,14 +46,14 @@ basement_bathroom_lights:
     - switch.bsm_bathroom_vanity
 
 basement_toilet_lights:
-  name: Basement Toilet Lights
+  name: Basement Toilet
   view: no
   entities:
     - switch.bsm_toilet
     - switch.bsm_toilet_exhaust
 
 basement_lights:
-  name: Basement Lights
+  name: Basement
   view: no
   entities:
     - switch.art_room
@@ -73,13 +73,14 @@ exhaust_fans:
   name: Exhaust Fans
   view: no
   entities:
+    - switch.guest_bathroom_fan
     - switch.bsm_bathroom_exhaust
     - switch.bsm_toilet_exhaust
     - switch.master_bathroom_exhaust
     - switch.master_toilet_exhaust
 
 ground_floor_lights:
-  name: Ground Floor Lights
+  name: Ground Floor
   view: no
   entities:
     - switch.dining_room
@@ -89,8 +90,17 @@ ground_floor_lights:
     - light.living_fireplace_wall
     - light.living_pots
 
+guest_bathroom_lights:
+  name: Guest Bathroom
+  view: no
+  entities:
+    - switch.guest_bathroom_vanity
+    - switch.guest_bathroom_main
+    - switch.guest_bathroom_tub
+    - switch.guest_bathroom_fan
+
 master_bathroom_lights:
-  name: Ensuite Lights
+  name: Ensuite
   view: no
   entities:
     - light.above_tub
@@ -106,7 +116,7 @@ master_toilet_light:
     - switch.master_toilet_exhaust
 
 second_floor_lights:
-  name: Second Floor Lights
+  name: Second Floor
   view: no
   entities:
     - switch.laundry
@@ -117,8 +127,10 @@ second_floor_lights:
     - group.master_toilet_light
     - switch.master_closet
     - switch.upstairs_hallway
+    - group.guest_bathroom_lights
+
 loft_lights:
-  name: Loft Lights
+  name: Loft
   view: no
   entities:
     - switch.loft

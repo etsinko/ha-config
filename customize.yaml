@@ -117,3 +117,15 @@ light.living_fireplace_wall:
   friendly_name: Fireplace Wall
 light.living_pots:
   friendly_name: Living Room
+switch.guest_bathroom_vanity:
+  friendly_name: Guest Bathroom Vanity
+  icon: mdi:lightbulb
+switch.guest_bathroom_main:
+  friendly_name: Guest Bathroom
+  icon: mdi:lightbulb
+switch.guest_bathroom_tub:
+  friendly_name: Guest Bathroom Tub
+  icon: mdi:lightbulb
+switch.guest_bathroom_fan:
+  friendly_name: Guest Bathroom Exhaust
+  icon: mdi:fan    
