@@ -1,10 +1,9 @@
-# Runs home_recirc_pump.py every 5 minutes if in home mode
+# Runs home_recirc_pump.py every 10 minutes if in home mode
 - alias: Run recirc pump automation
   hide_entity: true
   trigger:
     platform: time
-    # You can also match on interval. This will match every 5 minutes
-    minutes: '/5'
+    minutes: '/10'
     seconds: 00
   condition:
     # We are not on vacation
