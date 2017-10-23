@@ -28,7 +28,7 @@ required_state = schedule[event_time]
 pump_state = hass.states.get('switch.recirc_pump').state
 
 logger.info('Pump state is "%s", required state is "%s"', pump_state, required_state)
-# Turn off pump for 5 minutes if it has been on or flip it if states
+# Turn off pump for 10 minutes if it has been on or flip it if states
 # are not equal
 if (required_state == 'on' and pump_state == 'on') or required_state != pump_state:
     hass.services.call('switch', 'toggle', {'entity_id': 'switch.recirc_pump'})
