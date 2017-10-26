@@ -7,8 +7,6 @@
       entity_id: sensor.current_state
       from: 'home'
       to: 'away'
-      for:
-        minutes: 5
   # Set away mode
   action:
     - service: notify.telegram_egor
