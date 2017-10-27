@@ -45,9 +45,30 @@ conversation:
 # Enables support for tracking state changes over time
 history:
   exclude:
+    entities:
+      - sensor.time
+      - sensor.hour
+      - sensor.moon
+      - sensor.ring_front_door_last_activity
+      - sensor.ring_front_door_last_ding
+      - sensor.ring_front_door_last_motion
+      - sensor.season
+      - sensor.dark_sky_daily_summary
+      - sensor.dark_sky_hourly_summary
+      - sensor.dark_sky_icon
+      - sensor.dark_sky_summary
+      - group.shades_elevation
     domains:
-      - sun
-      - time
+      - switch
+      - automation
+      - updater
+  include:
+    domains:
+      - group
+      - sensor
+      - media_player
+    entities:
+      - switch.recirc_pump
 
 # View all events in a logbook
 logbook:
