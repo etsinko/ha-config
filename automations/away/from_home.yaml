@@ -31,5 +31,5 @@
     - service: scene.turn_on
       data:
         entity_id:
-          - scene.42453 # Dining Closed
+          - scene.34003 # Dining Closed
           - scene.56015 # Living Closed

@@ -23,7 +23,7 @@ logger.info('Sun elevation is %.2f, Dark outside is "%s". Close Elevation = %.2f
 # After sunset lower shades
 if sun_elevation <= close_elevation:
     hass.services.call('notify', 'telegram_egor', {"message": "Sun is below horizon, closing shades."})
-    hass.services.call('scene', 'turn_on', {"entity_id": ["scene.42453", # Dining Closed
+    hass.services.call('scene', 'turn_on', {"entity_id": ["scene.34003", # Dining Closed
                                                           "scene.54379", # Master Closed
                                                           "scene.56015", # Living Closed
                                                           ]})
@@ -31,12 +31,12 @@ if sun_elevation <= close_elevation:
 elif sun_elevation >= open_elevation:
     if dark_outside == 'on':
         hass.services.call('notify', 'telegram_egor', {"message": "Sun is up! Although it is cloudy. Opening shades."})
-        hass.services.call('scene', 'turn_on', {"entity_id": ["scene.37217", # Dining Vanes Open
+        hass.services.call('scene', 'turn_on', {"entity_id": ["scene.48449", # Dining Vanes Open
                                                               "scene.37428", # Living Open
                                                               ]})
     # Raise shades after sunrise (sunny)
     else:
         hass.services.call('notify', 'telegram_egor', {"message": "Sun is up! Opening shades."})
-        hass.services.call('scene', 'turn_on', {"entity_id": ["scene.37217", # Dining Vanes Open
+        hass.services.call('scene', 'turn_on', {"entity_id": ["scene.48449", # Dining Vanes Open
                                                               "scene.43193", # Living Vanes Open
                                                               ]})
