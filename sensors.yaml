@@ -53,9 +53,6 @@
   locations: [Calgary]
   stations: ['Calgary Northwest, Alberta, Canada']
 
-- platform: zoneminder
-  include_archived: false
-
 - platform: plex
   host: !secret plex_host
   server: plex

@@ -269,3 +269,12 @@ isy994ems:
   picture:
   track: false
   vendor: Electronic Solutions, Inc.
+
+xeoma:
+  hide_if_away: false
+  icon:
+  mac: 00:0C:29:1A:C5:D9
+  name: xeoma
+  picture:
+  track: false
+  vendor: VMware, Inc.

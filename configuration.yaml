@@ -144,16 +144,16 @@ ring:
 
 binary_sensor: !include binary_sensors.yaml
 
-zoneminder:
-  host: !secret zm_host
-  path: /zm/
-  path_zms: zm/cgi-bin/nph-zms
-
 ecobee:
   api_key: !secret ecobee_api_key
 
 camera:
-  - platform: zoneminder
+  - platform: generic
+    still_image_url: http://xeoma.local/front.jpg
+    name: Front
+  - platform: generic
+    still_image_url: http://xeoma.local/back.jpg
+    name: Back
   - platform: generic
     still_image_url: http://trafficcam.calgary.ca/loc15.jpg
     name: Glenmore/Crowchild SW
