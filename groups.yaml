@@ -89,6 +89,9 @@ ground_floor_lights:
     - switch.main_stairs
     - light.living_fireplace_wall
     - light.living_pots
+    - switch.entry
+    - switch.kitchen_passageway
+    - switch.kitchen_island
 
 guest_bathroom_lights:
   name: Guest Bathroom
@@ -152,6 +155,16 @@ outdoor_lights:
     - switch.porch
     - switch.deck
     - switch.under_deck
+    - switch.garage_entrance
+    - switch.garage_back_alley
+
+garage_lights:
+  name: Garage Lights
+  view: no
+  entities:
+    - switch.garage
+    - switch.garage_back_alley
+    - switch.garage_entrance
 
 household:
   name: Household

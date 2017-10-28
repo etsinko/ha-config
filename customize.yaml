@@ -128,4 +128,22 @@ switch.guest_bathroom_tub:
   icon: mdi:lightbulb
 switch.guest_bathroom_fan:
   friendly_name: Guest Bathroom Exhaust
-  icon: mdi:fan    
+  icon: mdi:fan
+switch.entry:
+  friendly_name: Entry
+  icon: mdi:lightbulb
+switch.kitchen_passageway:
+  friendly_name: Kitchen Passageway
+  icon: mdi:lightbulb
+switch.kitchen_island:
+  friendly_name: Kitchen Island
+  icon: mdi:lightbulb
+switch.garage:
+  friendly_name: Garage
+  icon: mdi:lightbulb
+switch.garage_back_alley:
+  friendly_name: Back Alley
+  icon: mdi:lightbulb
+switch.garage_entrance:
+  friendly_name: Garage Entrance
+  icon: mdi:lightbulb
