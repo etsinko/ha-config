@@ -1,0 +1,25 @@
+# Turn on garage entrance light after dark when garage door is opened
+- alias: Turn on garage entrance light at night when garage is opened
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: cover.garage_door
+      to: 'open'
+  condition:
+    condition: and
+    conditions:
+      # And it is after sunset
+      - condition: template
+        value_template: '{{ states.sun.sun.attributes.elevation <= -0.5 }}'
+  # Set away mode
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+          - switch.garage_entrance
+    - delay:
+        minutes: 10
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.garage_entrance

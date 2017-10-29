@@ -1,0 +1,24 @@
+# Turn on mudroom light whenever mudroom motion detector is triggered
+- alias: Turn on mudroom light when motion detector is triggered
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.mudroom_md
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      # And it is after sunset
+      - condition: template
+        value_template: '{{ states.sun.sun.attributes.elevation <= 0.5 }}'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+          - switch.mudroom
+    - delay:
+        minutes: 10
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.mudroom

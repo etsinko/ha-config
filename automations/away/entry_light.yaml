@@ -1,0 +1,28 @@
+# Turn on entry light whenever entry motion detector is triggered
+- alias: Turn on entry light when motion detector is triggered
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.foyer_md
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      # Away mode
+      - condition: state
+        entity_id: sensor.current_state
+        state: 'away'
+      # And it is after sunset
+      - condition: template
+        value_template: '{{ states.sun.sun.attributes.elevation <= 0 }}'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+          - switch.entry
+    - delay:
+        minutes: 10
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.entry
