@@ -11,6 +11,9 @@
       # And it is after sunset
       - condition: template
         value_template: '{{ states.sun.sun.attributes.elevation <= -0.5 }}'
+      - condition: state
+        entity_id: switch.garage_entrance
+        state: 'off'
   # Set away mode
   action:
     - service: switch.turn_on
