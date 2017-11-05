@@ -91,7 +91,7 @@ switch.recirc_pump:
   friendly_name: Recirculation Pump
   icon: mdi:pipe
 cover.garage_door:
-  icon: mdi:garage  # mdi:garage-open
+  icon: mdi:garage
 switch.basement_stairs:
   friendly_name: Basement Stairs
   icon: mdi:lightbulb
@@ -147,3 +147,5 @@ switch.garage_back_alley:
 switch.garage_entrance:
   friendly_name: Garage Entrance
   icon: mdi:lightbulb
+binary_sensor.upstairs_occupancy:
+  friendly_name: Second Floor Occupancy
