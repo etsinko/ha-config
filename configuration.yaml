@@ -25,7 +25,9 @@ http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+  base_url: !secret base_url
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -249,6 +251,15 @@ scene:
   address: !secret powerview_address
 
 alert:
+  ssl_certificate:
+    name: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
+    done_message: SSL Certificate renewed!
+    entity_id: binary_sensor.ssl_expiring_soon
+    repeat: 1440 # 1 day
+    can_acknowledge: False
+    notifiers:
+      - telegram_egor
+
   garage_door:
     name: Garage door is open
     done_message: Garage door is closed

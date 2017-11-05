@@ -4,6 +4,13 @@
 
 - platform: template
   sensors:
+    # True if less than 21 days left for SSL expiration
+    ssl_expiring_soon:
+      entity_id:
+        - sensor.ssl_cert_expiry
+      friendly_name: SSL expiring soon
+      value_template: "{{states.sensor.ssl_cert_expiry.state|int < 21}}"
+
     # True if it is dark outside if sun is below horizon or cloud coverage
     # is greater than 50%
     dark_outside:
