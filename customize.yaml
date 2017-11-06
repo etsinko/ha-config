@@ -149,3 +149,59 @@ switch.garage_entrance:
   icon: mdi:lightbulb
 binary_sensor.upstairs_occupancy:
   friendly_name: Second Floor Occupancy
+switch.auto_dr:
+  hidden: true
+switch.basement_hall_1:
+  hidden: true
+switch.basement_hall_2:
+  hidden: true
+switch.basement_stairs_1:
+  hidden: true
+switch.basement_stairs_2:
+  hidden: true
+switch.dining_room_1:
+  hidden: true
+switch.dining_room_2:
+  hidden: true
+switch.entry_1:
+  hidden: true
+switch.entry_2:
+  hidden: true
+switch.kitchen_1:
+  hidden: true
+switch.kitchen_2:
+  hidden: true
+switch.living_secondary:
+  hidden: true
+switch.loft_stairs_1:
+  hidden: true
+switch.loft_stairs_2:
+  hidden: true
+switch.main_stairs_1:
+  hidden: true
+switch.main_stairs_2:
+  hidden: true
+switch.mudroom_1:
+  hidden: true
+switch.mudroom_2:
+  hidden: true
+switch.upstairs_hallway_1:
+  hidden: true
+switch.upstairs_hallway_2:
+  hidden: true
+switch.upstairs_hallway_3:
+  hidden: true
+switch.upstairs_hallway_4:
+  hidden: true
+light.kitchen_island_1:
+  hidden: true
+light.kitchen_island_2:
+  hidden: true
+light.kitchen_island_3:
+  hidden: true
+light.kitchen_passageway_1:
+  hidden: true
+light.kitchen_passageway_2:
+  hidden: true
+light.kitchen_passageway_3:
+  hidden: true
