@@ -209,6 +209,8 @@ media_player:
       16:
         name: Art Room
     sources:
+      1:
+        name: Computer Egor
       5:
         name: Chromecast Egor
 
