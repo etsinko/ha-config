@@ -278,3 +278,12 @@ xeoma:
   picture:
   track: false
   vendor: VMware, Inc.
+
+eap22550c7bff63d9e:
+  hide_if_away: false
+  icon:
+  mac: 50:C7:BF:F6:3D:9E
+  name: EAP225-50-C7-BF-F6-3D-9E
+  picture:
+  track: false
+  vendor: unknown
