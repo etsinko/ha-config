@@ -21,6 +21,12 @@ config:
 
 map:
 
+mqtt:
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
+
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret password
@@ -95,6 +101,8 @@ automation: !include_dir_merge_list automations/
 script: !include_dir_named scripts/
 
 device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 100
 
   - platform: netgear
     host: !secret netgear_host

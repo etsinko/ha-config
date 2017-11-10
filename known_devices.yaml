@@ -8,7 +8,7 @@ yulia:
   track: true
   vendor: Sony Mobile Communications AB
 
-egor:
+egor_phone:
   hide_if_away: false
   icon:
   mac: 64:89:9A:86:8F:5B
