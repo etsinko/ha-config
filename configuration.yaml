@@ -261,6 +261,16 @@ scene:
   address: !secret powerview_address
 
 alert:
+  low_temperature:
+    name: House temperature is dangerously low!
+    done_message: Temperature is back to normal.
+    entity_id: binary_sensor.low_temperature
+    can_acknowledge: False
+    repeat: 30
+    notifiers:
+      - telegram_egor
+      - ecobee
+
   ssl_certificate:
     name: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
     done_message: SSL Certificate renewed!
