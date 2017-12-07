@@ -50,31 +50,32 @@
     - entity_id: group.household
       platform: state
       to_state: home
-      prob_given_true: 0.9 # 90% chance that if we are in bed we are at home
+      prob_given_true: 0.99 # 99% chance that if we are in bed we are at home
       prob_given_false: 0.7 # 70% chance that if we are not in bed we are at home
     # we are in bed -> likely alarm will be set
     - entity_id: alarm_control_panel.home_alarm
       platform: state
       to_state: armed_away
-      prob_given_true: 0.7
-      prob_given_false: 0.5
+      prob_given_true: 0.9 # 90% chance that if we are in bed alarm is armed
+      prob_given_false: 0.5 # 50% chance that if we are not in bed alarm is armed
     # we are in bed -> vey likely no motion is detected
     - entity_id: binary_sensor.motion_detected
       platform: state
       to_state: 'off'
-      prob_given_true: 0.8
-      prob_given_false: 0.7
+      prob_given_true: 0.9 # 90% chance that if we are in bed no motion is detected
+      prob_given_false: 0.7 # 70% chance that if we are not in bed no motion is detected
     # we are in bed -> very likely it is night time
     - entity_id: binary_sensor.night
       platform: state
       to_state: 'on'
-      prob_given_true: 0.9
-    # we are in bed -> likely that at indoor lights are turned off
-    - entity_id: group.indoor_lights
+      prob_given_true: 0.9 # 90% chance that if we are in bed it is night
+      prob_given_false: 0.5 # 50% chance that if we are not in bed it is night
+    # we are in bed -> likely that master bedroom light is off
+    - entity_id: light.master_bedroom
       platform: state
       to_state: 'off'
-      prob_given_true: 0.7
-      prob_given_false: 0.7
+      prob_given_true: 0.9 # 90% chance that if we are in bed, the light is off
+      prob_given_false: 0.7 # 70% chance that if we are not in bed the light is off
 
 - platform: bayesian
   name: Somebody home
@@ -85,7 +86,7 @@
     - entity_id: group.household
       platform: state
       to_state: home
-      prob_given_true: 0.9
+      prob_given_true: 0.99
     # Somebody at home -> Likely alarm is disarmed
     - entity_id: alarm_control_panel.home_alarm
       platform: state
