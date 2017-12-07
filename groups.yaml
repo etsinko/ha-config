@@ -14,6 +14,18 @@ shades_elevation:
     - input_number.close_shades_elevation
     - input_number.open_shades_elevation
 
+security:
+  name: Security
+  view: yes
+  entities:
+    - group.motion_detectors
+    - group.occupancy_sensors
+    - camera.back
+    - camera.front
+    - camera.glenmorecrowchild_sw
+    - sensor.home_alarm_keypad
+    - alarm_control_panel.home_alarm
+
 motion_detectors:
   name: Motion Detectors
   view: no
@@ -179,6 +191,7 @@ climate:
   entities:
      - climate.main_floor
      - climate.upstairs
+     - sensor.indoor_temperatures
      - sensor.basement_temperature
      - sensor.loft_temperature
      - sensor.main_floor_humidity
