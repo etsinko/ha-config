@@ -204,18 +204,8 @@ config:
   name: Configuration
   view: yes
   entities:
-     - input_boolean.have_guests
-     - input_boolean.on_vacation
-     - group.night_mode_inputs
      - group.shades_elevation
      - input_select.system_mode
-
-night_mode_inputs:
-  name: Night mode
-  view: no
-  entities:
-    - input_datetime.night_starts
-    - input_datetime.night_ends
 
 monoprice:
   name: Monoprice Zones
