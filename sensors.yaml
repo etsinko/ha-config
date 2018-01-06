@@ -80,11 +80,6 @@
     - last_activity
     - last_ding
     - last_motion
-
-- platform: moon
-
-- platform: season
-  type: meteorological
 # TODO doesn't work
 #   - platform: mold_indicator
 #     indoor_temp_sensor: sensor.main_floor_temperature
