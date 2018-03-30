@@ -11,7 +11,7 @@ yulia:
 egor_phone:
   hide_if_away: false
   icon:
-  mac: 64:89:9A:86:8F:5B
+  mac: DC:BF:E9:32:C2:6D
   name: Egor
   gravatar: !secret egor_email
   picture:
@@ -287,3 +287,58 @@ eap22550c7bff63d9e:
   picture:
   track: false
   vendor: unknown
+
+odoo:
+  hide_if_away: false
+  icon:
+  mac: 00:0C:29:61:4C:70
+  name: odoo
+  picture:
+  track: false
+  vendor: unknown
+
+1c1ee3b4454e:
+  hide_if_away: false
+  icon:
+  mac: 1C:1E:E3:B4:45:4E
+  name: --
+  picture:
+  track: false
+  vendor: unknown
+
+70255929ca11:
+  hide_if_away: false
+  icon:
+  mac: 70:25:59:29:CA:11
+  name: --
+  picture:
+  track: false
+  vendor: unknown
+
+
+galaxytabs2:
+  hide_if_away: false
+  icon:
+  mac: 9C:E0:63:F7:67:5B
+  name: Galaxy-Tab-S2
+  picture:
+  track: false
+  vendor: Samsung Electronics Co.,Ltd
+
+tatianasipad:
+  hide_if_away: false
+  icon:
+  mac: 20:78:F0:36:4F:D9
+  name: Tatianas-iPad
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+brwd46a6a3d4eda:
+  hide_if_away: false
+  icon:
+  mac: D4:6A:6A:3D:4E:DA
+  name: BRWD46A6A3D4EDA
+  picture:
+  track: false
+  vendor: Hon Hai Precision Ind. Co.,Ltd.
