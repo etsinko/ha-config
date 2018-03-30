@@ -292,6 +292,11 @@ alert:
       - telegram_egor
       - ecobee
 
+input_boolean:
+  mudroom_light:
+    name: Mudroom light has turned on automatically
+    initial: off
+
 input_number:
   close_shades_elevation:
     name: Closing shades Sun elevation

@@ -8,6 +8,10 @@
   condition:
     condition: and
     conditions:
+      # Only do if it is not a repeated motion
+      - condition: state
+        entity_id: input_boolean.mudroom_light
+        state: 'off'
       # And it is after sunset
       - condition: template
         value_template: '{{ states.sun.sun.attributes.elevation <= 0.5 }}'
@@ -19,9 +23,17 @@
       data:
         entity_id:
           - switch.mudroom
+    - service: input_boolean.turn_on
+      data:
+        entity_id:
+          - input_boolean.mudroom_light
     - delay:
         minutes: 10
     - service: switch.turn_off
       data:
         entity_id:
           - switch.mudroom
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.mudroom_light
