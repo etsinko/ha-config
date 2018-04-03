@@ -186,6 +186,9 @@ camera:
     still_image_url: http://xeoma.local/back.jpg
     name: Back
   - platform: generic
+    still_image_url: http://xeoma.local/garage.jpg
+    name: Garage
+  - platform: generic
     still_image_url: http://trafficcam.calgary.ca/loc15.jpg
     name: Glenmore/Crowchild SW
 
