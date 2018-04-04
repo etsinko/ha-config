@@ -342,3 +342,12 @@ brwd46a6a3d4eda:
   picture:
   track: false
   vendor: Hon Hai Precision Ind. Co.,Ltd.
+
+0066780e6224:
+  hide_if_away: false
+  icon:
+  mac: 00:66:78:0E:62:24
+  name: --
+  picture:
+  track: false
+  vendor: unknown

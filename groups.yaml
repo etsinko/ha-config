@@ -22,6 +22,7 @@ security:
     - group.occupancy_sensors
     - camera.back
     - camera.front
+    - camera.garage
     - camera.glenmorecrowchild_sw
     - sensor.home_alarm_keypad
     - alarm_control_panel.home_alarm
