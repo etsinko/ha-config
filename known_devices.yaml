@@ -351,3 +351,21 @@ brwd46a6a3d4eda:
   picture:
   track: false
   vendor: unknown
+
+garminvb:
+  hide_if_away: false
+  icon:
+  mac: 08:00:27:9F:47:48
+  name: garminvb
+  picture:
+  track: false
+  vendor: PCS Systemtechnik GmbH
+
+0066780e6096:
+  hide_if_away: false
+  icon:
+  mac: 00:66:78:0E:60:96
+  name: --
+  picture:
+  track: false
+  vendor: unknown
