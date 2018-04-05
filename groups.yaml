@@ -23,6 +23,7 @@ security:
     - camera.back
     - camera.front
     - camera.garage
+    - camera.back_yard
     - camera.glenmorecrowchild_sw
     - sensor.home_alarm_keypad
     - alarm_control_panel.home_alarm
