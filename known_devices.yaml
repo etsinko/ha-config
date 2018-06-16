@@ -1,12 +1,12 @@
 yulia:
   hide_if_away: false
   icon:
-  mac: 30:A8:DB:C0:62:D5
+  mac: 44:91:60:69:2B:3C
   name: Yulia
   picture:
   gravatar: !secret yulia_email
   track: true
-  vendor: Sony Mobile Communications AB
+  vendor: Samsung
 
 egor_phone:
   hide_if_away: false
@@ -369,3 +369,38 @@ garminvb:
   picture:
   track: false
   vendor: unknown
+
+brn3c2af42d7d96:
+  hide_if_away: false
+  icon:
+  mac: 3C:2A:F4:2D:7D:96
+  name: BRN3C2AF42D7D96
+  picture:
+  track: false
+  vendor: Brother Industries, LTD.
+
+macrohard_2:
+  hide_if_away: false
+  icon:
+  mac: 1C:4B:D6:C3:0C:3F
+  name: macrohard
+  picture:
+  track: false
+  vendor: unknown
+
+000b82cfa63b:
+  hide_if_away: false
+  icon:
+  mac: 00:0B:82:CF:A6:3B
+  name: 00:0B:82:CF:A6:3B
+  picture:
+  track: false
+
+
+android45ec736147caa335:
+  hide_if_away: false
+  icon:
+  mac: 30:A8:DB:C0:62:D5
+  name: android-45ec736147caa335
+  picture:
+  track: false
