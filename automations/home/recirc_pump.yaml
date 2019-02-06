@@ -2,7 +2,7 @@
 - alias: Run recirc pump automation
   hide_entity: true
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/10'
     seconds: 00
   condition:
