@@ -4,18 +4,18 @@ sequence:
     data:
       entity_id:
         - media_player.chromecastegor
-        - media_player.kitchendining_room
+        - media_player.kitchen_dining_room
   # Choose source #5 (chromecast) for kitchen/dining room zone
   - service: media_player.select_source
     data:
       entity_id:
-        - media_player.kitchendining_room
+        - media_player.kitchen_dining_room
       source: Chromecast Egor
   # Set volume to 30%
   - service: media_player.volume_set
     data:
       entity_id:
-        - media_player.kitchendining_room
+        - media_player.kitchen_dining_room
       volume_level: 0.3
   # Say current weather
   - service: tts.google_say
@@ -32,4 +32,4 @@ sequence:
     data:
       entity_id:
         - media_player.chromecastegor
-        - media_player.kitchendining_room
+        - media_player.kitchen_dining_room

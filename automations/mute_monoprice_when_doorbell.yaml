@@ -14,7 +14,7 @@
         entity_id: media_player.ensuite
         state: 'on'
       - condition: state
-        entity_id: media_player.kitchendining_room
+        entity_id: media_player.kitchen_dining_room
         state: 'on'
       - condition: state
         entity_id: media_player.living_room
