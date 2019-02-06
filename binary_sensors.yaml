@@ -15,7 +15,7 @@
     low_temperature:
       entity_id:
         - sensor.indoor_temperatures
-      value_template: "{{states.sensor.indoor_temperatures.attributes.min_value|float < 15}}"
+      value_template: "{{states.sensor.indoor_temperatures.attributes.min_value|float < 13}}"
 
     # True if it is dark outside if sun is below horizon or cloud coverage
     # is greater than 50%
