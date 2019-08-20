@@ -208,7 +208,6 @@ media_player:
 
   - platform: monoprice
     port: /dev/ttyUSB0
-    name: Monoprice
     zones:
       11:
         name: Loft
