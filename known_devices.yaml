@@ -404,3 +404,35 @@ android45ec736147caa335:
   name: android-45ec736147caa335
   picture:
   track: false
+
+android467cf57144faa8d3:
+  hide_if_away: false
+  icon:
+  mac: 64:89:9A:86:8F:5B
+  name: android-467cf57144faa8d3
+  picture:
+  track: false
+
+pavel:
+  hide_if_away: false
+  icon:
+  mac: 00:B3:62:9D:8A:DE
+  name: Pavel
+  picture:
+  track: false
+
+scoopers_iphone:
+  hide_if_away: false
+  icon:
+  mac: 70:3C:69:AB:14:FA
+  name: SCoopers-iPhone
+  picture:
+  track: false
+
+galinas_iphone:
+  hide_if_away: false
+  icon:
+  mac: 9C:FC:01:30:ED:DC
+  name: Galinas-iPhone
+  picture:
+  track: false
