@@ -11,7 +11,7 @@
       data:
         message: Turning Vacation mode off. Welcome home!
     # Remove away mode from thermostat
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
         entity_id: group.climate
-        away_mode: false
+        preset_mode: 'home'

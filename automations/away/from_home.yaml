@@ -23,10 +23,10 @@
       data:
         entity_id: group.monoprice
     # Set away mode on thermostats
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
         entity_id: group.climate
-        away_mode: true
+        preset_mode: 'away'
     # Close main floor shades
     - service: scene.turn_on
       data:

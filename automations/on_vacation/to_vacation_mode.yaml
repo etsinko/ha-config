@@ -6,13 +6,10 @@
       to: 'on_vacation'
   action:
     # 1 Set away mode in thermostat
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
         entity_id: group.climate
-        away_mode: true
-    - service: notify.telegram_egor
-      data:
-        message: Turning Vacation mode on. Have a good vacation!
+        preset_mode: 'away'
     # turn off all lights and recirculation pump
     - service: switch.turn_off
       data:
@@ -29,3 +26,6 @@
         entity_id:
           - scene.34003 # Dining Closed
           - scene.56015 # Living Closed
+    - service: notify.telegram_egor
+      data:
+        message: Turning Vacation mode on. Have a good vacation!

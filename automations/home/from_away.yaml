@@ -14,7 +14,7 @@
       data:
         message: Somebody is home. Cancelling Away mode.
     # Cancel away mode on all thermostats
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
         entity_id: group.climate
-        away_mode: false
+        preset_mode: 'home'
